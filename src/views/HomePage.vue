@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Secretary App 2</ion-title>
+        <ion-title>Secretary App</ion-title>
       </ion-toolbar>
     </ion-header>
 
