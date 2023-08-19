@@ -2,7 +2,7 @@
   <ion-page>
     <ion-header :translucent="true">
       <ion-toolbar>
-        <ion-title>Dr App Changes by salar</ion-title>
+        <ion-title>Dr App Changes by Idrees</ion-title>
       </ion-toolbar>
     </ion-header>
 
