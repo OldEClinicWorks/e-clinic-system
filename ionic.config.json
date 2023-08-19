@@ -1,0 +1,7 @@
+{
+  "name": "Secretary App",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
