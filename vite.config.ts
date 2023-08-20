@@ -3,6 +3,9 @@ import vue from '@vitejs/plugin-vue'
 import path from 'path'
 // import { defineConfig } from 'vite'
 import { defineConfig } from 'vitest/config';
+import postcss from 'postcss';
+import tailwindcss from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -37,4 +40,13 @@ export default defineConfig({
      // produce sourcemaps for debug builds
      sourcemap: !!process.env.TAURI_DEBUG,
    },
+   css: {
+    postcss: {
+      plugins: [
+        postcss(),
+        tailwindcss(),
+        autoprefixer(),
+      ],
+    },
+  },
 })

@@ -58,7 +58,11 @@
         "height": 600,
         "resizable": true,
         "title": "secretary-app",
-        "width": 800
+        "width": 800,
+        "maximized": true,        
+        "closable": false,
+        "alwaysOnTop": true,
+        "skipTaskbar": false
       }
     ]
   }
