@@ -8,39 +8,37 @@
 
     <ion-content :fullscreen="true">
 
+      <user-profile-card></user-profile-card>
+      <vital-signs-card></vital-signs-card>
 
-      <div id="container">
-        <ion-grid>
-          <ion-row>
-            <ion-col size="1">Menu</ion-col>
-            <ion-col size="2">left layout</ion-col>
-            <ion-col size="7">main page</ion-col>
-            <ion-col size="2">right layout</ion-col>
-          </ion-row>
-        </ion-grid>
-      </div>
     </ion-content>
   </ion-page>
 </template>
 
-<script setup lang="ts">
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar, IonCol, IonGrid, IonRow } from '@ionic/vue';
+<script lang="ts">
 
+  import { IonIcon, IonLabel } from '@ionic/vue';
+  import { defineComponent } from 'vue';
+  import { addIcons } from 'ionicons';
+  import UserProfileCard from '../views/UserProfileCard.vue';
+  import VitalSignsCard from '../views/VitalSignsCard.vue';
 
+  import { construct, home, male, addCircle} from "ionicons/icons";
+
+addIcons({
+  "ios-construct": construct.ios,
+  "md-construct": construct.md,
+  "md-home": home.md,
+  "md-male": male.md,
+  "md-addCircle": addCircle.md,
+
+});
+
+  export default defineComponent({
+    components: { IonIcon, IonLabel, UserProfileCard, VitalSignsCard },
+  });
 </script>
 
 <style scoped>
-#container {
 
-}
-
-
-
-
-ion-col {
-    background-color: #135d54;
-    border: solid 1px #fff;
-    color: #fff;
-    text-align: center;
-  }
 </style>

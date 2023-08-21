@@ -1,0 +1,150 @@
+<template>
+    <ion-page>  
+        <ion-card  class="custom-card">
+          <ion-card-content>
+            <div class="user-profile">
+              <ion-avatar class="profile-avatar">
+                <ion-img :src="userData.avatarUrl"></ion-img>
+              </ion-avatar>
+              <div class="profile-details">
+                <ion-label class="profile-name">{{ userData.name }}</ion-label>          
+              </div>
+            </div><br>
+            <div class="user-info">
+              <div class="info-item">
+                <ion-label class="info-label">BP</ion-label> <br>
+                <ion-label class="info-value">{{ userData.BP }}</ion-label> <br>
+                <ion-label class="info-value">{{ userData.BPUnit }}</ion-label>
+              </div>
+              <div class="line"></div>
+              <div class="info-item">
+                <ion-label class="info-label">PR</ion-label> <br>
+                <ion-label class="info-value">{{ userData.PR }}</ion-label> <br>
+                <ion-label class="info-value">{{ userData.PRUnit }}</ion-label> 
+              </div>
+              <div class="line"></div>
+              <div class="info-item">
+                <ion-label class="info-label">Temp</ion-label> <br>
+                <ion-label class="info-value">{{ userData.Temp }}</ion-label> <br>
+                <ion-label class="info-value">{{ userData.TempUnit }}</ion-label>
+              </div>
+            </div>
+            <div @click="swap" class="icon-container">
+              <ion-icon name="swap"></ion-icon>
+            </div>
+          </ion-card-content>
+        </ion-card>
+    </ion-page>
+  </template>
+  
+  <script lang="ts">
+  
+    import { IonIcon, IonLabel } from '@ionic/vue';
+    import { defineComponent } from 'vue';
+    import { addIcons } from 'ionicons';
+  
+    import { swap } from "ionicons/icons";
+  
+  addIcons({
+    "swap": swap.md,
+  });
+
+  
+    export default defineComponent({
+  
+      methods: {
+        swap(){
+          console.log('swap clicked')
+        }
+      },
+      components: { IonIcon, IonLabel  },
+      data() {
+      return {
+        userData: {
+          avatarUrl: 'https://ucarecdn.com/904ba744-302a-4da5-bc68-6533308b7781/-/scale_crop/150x150/center/',
+          name: 'Idrees Ageed',
+          BP: '120/80',
+          PR: '107',
+          Temp: '30',      
+          BPUnit: '℃',
+          PRUnit: '℃',
+          TempUnit: '℃',
+          isMouseOver: false,      
+        },
+        
+      };
+    }
+    });
+  </script>
+  
+  <style scoped>
+
+  .icon-container {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: #4f4e4d;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden; /* Initially hidden */
+  }
+  .custom-card:hover .icon-container {
+    visibility: visible; /* Show icon when card is hovered */
+  }
+
+  .line {
+    border-left: 1px solid rgb(255, 255, 255);
+    opacity: 40%;
+  }
+  .custom-card {
+    border-radius: 15px;
+    background: #5DB3A8;
+    color: white;
+  }
+  
+  .user-profile {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-avatar {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .profile-details {
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+  }
+  
+  .profile-name {
+    font-weight: bold;
+    margin-right: 6px;
+  }
+  
+  .user-info {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .info-item {
+    text-align: center;
+  }
+  
+  .info-label {
+    font-size: 12px;
+    opacity: 70%;
+  }
+  
+  .info-value {
+    font-size: 16px;
+    font-weight: bold;
+
+  }
+  </style>
