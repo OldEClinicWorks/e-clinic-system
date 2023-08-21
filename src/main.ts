@@ -4,7 +4,6 @@ import router from './router';
 
 import '@ionic/vue/css/ionic.bundle.css';
 
-
 import { IonicVue } from '@ionic/vue';
 
 /* Core CSS required for Ionic components to work properly */
@@ -25,11 +24,14 @@ import '@ionic/vue/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import './theme/use-tailwind.css';
+import './theme/xbase.css';
 
 const app = createApp(App)
   .use(IonicVue)
   .use(router);
-  
+
 router.isReady().then(() => {
   app.mount('#app');
+  
 });
