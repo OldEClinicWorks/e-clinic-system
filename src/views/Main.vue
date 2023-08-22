@@ -3,14 +3,15 @@
     <ion-content :fullscreen="true">
       <!-- SCREEN -->
       <div class="flex flex-col min-h-screen">
-        <!-- Vertical Left Toolbar -->
         <div class="flex-grow flex xbase-col-shadow-left-col">
+          <!-- Vertical Left Toolbar -->
           <XBaseSideBarNav>
             <div> item1 </div>
             <div> item2 </div>
             <div> item3 </div>
             <div> item4 </div>
           </XBaseSideBarNav>
+          <!-- Main View -->
           <div class="flex-grow flex flex-col">
             <!-- Header -->
             <XBaseHeader></XBaseHeader>
@@ -20,8 +21,8 @@
               <XBaseLeftSide>
                 <h2 class="text-xl font-semibold mb-2">Left Column Header</h2>
                 <div class="overflow-y-auto xbase-col-content-h xbase-col-content-h-left">
-                  LEFT                
-                  <UserProfileCard></UserProfileCard>                
+                  LEFT
+                  <UserProfileCard></UserProfileCard>
                   <VitalSignsCard></VitalSignsCard>
                 </div>
               </XBaseLeftSide>
@@ -52,7 +53,7 @@
 
             <!-- Footer -->
             <XBaseFooter>
-                Footer Content Here
+              Footer Content Here
             </XBaseFooter>
           </div>
         </div>
@@ -90,14 +91,14 @@ import VitalSignsCard from './VitalSignsCard.vue';
 .xbase-col-h-left {}
 
 .xbase-col-h-main {
- background-color: #f0f2f5; 
+  background-color: #f0f2f5;
 }
 
 .xbase-col-h-right {}
 
 .xbase-col-content-h {
   max-height: calc(100vh - 10rem);
-  
+
 }
 
 .xbase-col-content-h-left {}
