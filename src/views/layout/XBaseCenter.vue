@@ -19,7 +19,9 @@
 
 .xbase-col-shadow-both {
   z-index: 20;
-  box-shadow: /* horz vert blur spread */ 8px 0 0px -7px rgba(0, 0, 0, 0.3),
-  -8px 0 0px -7px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    /* horz vert blur spread */
+    8px 0 0px -7px rgba(0, 0, 0, 0.3),
+    -8px 0 0px -7px rgba(0, 0, 0, 0.3);
 }
 </style>

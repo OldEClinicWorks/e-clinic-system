@@ -1,3 +1,24 @@
+<script setup lang="ts">
+
+import { IonIcon, IonLabel } from '@ionic/vue';
+import { reactive } from 'vue';
+
+import { male, swapHorizontal } from "ionicons/icons";
+
+const swap = () => {
+  console.log('swap clicked')
+}
+const userData = reactive({
+  avatarUrl: 'https://ucarecdn.com/904ba744-302a-4da5-bc68-6533308b7781/-/scale_crop/150x150/center/',
+  name: 'Idrees Ageed',
+  age: 30,
+  height: '180cm',
+  weight: '75kg',
+})
+
+
+</script>
+
 <template>
   <ion-page>
     <ion-card class="custom-card">
@@ -34,27 +55,6 @@
     </ion-card>
   </ion-page>
 </template>
-  
-<script setup lang="ts">
-
-import { IonIcon, IonLabel } from '@ionic/vue';
-import { reactive } from 'vue';
-
-import { male, swapHorizontal } from "ionicons/icons";
-
-const swap = () => {
-  console.log('swap clicked')
-}
-const userData = reactive({
-  avatarUrl: 'https://ucarecdn.com/904ba744-302a-4da5-bc68-6533308b7781/-/scale_crop/150x150/center/',
-  name: 'Idrees Ageed',
-  age: 30,
-  height: '180cm',
-  weight: '75kg',
-})
-
-
-</script>
   
 <style scoped>
 .icon-container {

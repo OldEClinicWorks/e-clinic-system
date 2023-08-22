@@ -1,3 +1,22 @@
+<script setup lang="ts">
+import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import XBaseSideBarNav from "@/views/layout/XBaseSideBarNav.vue";
+import XBaseHeader from "@/views/layout/XBaseHeader.vue";
+import XBaseLeftSide from "@/views/layout/XBaseLeftSide.vue";
+import XBaseRightSide from "@/views/layout/XBaseRightSide.vue";
+import XBaseCenter from "@/views/layout/XBaseCenter.vue";
+import XBaseFooter from "@/views/layout/XBaseFooter.vue";
+
+
+// Queue
+import Queue from "@/views/components/queue/Queue.vue";
+
+// Left Side 
+import UserProfileCard from './UserProfileCard.vue';
+import VitalSignsCard from './VitalSignsCard.vue';
+
+</script>
+
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
@@ -73,26 +92,6 @@
   </ion-page>
 </template>
 
-<script setup lang="ts">
-import {IonContent, IonHeader, IonPage, IonTitle, IonToolbar} from '@ionic/vue';
-import XBaseSideBarNav from "@/views/layout/XBaseSideBarNav.vue";
-import XBaseHeader from "@/views/layout/XBaseHeader.vue";
-import XBaseLeftSide from "@/views/layout/XBaseLeftSide.vue";
-import XBaseRightSide from "@/views/layout/XBaseRightSide.vue";
-import XBaseCenter from "@/views/layout/XBaseCenter.vue";
-import XBaseFooter from "@/views/layout/XBaseFooter.vue";
-
-
-// Queue
-import Queue from "@/views/components/queue/Queue.vue";
-
-// Left Side 
-import UserProfileCard from './UserProfileCard.vue';
-import VitalSignsCard from './VitalSignsCard.vue';
-
-</script>
-
-
 <style>
 .xbase-col-wrapper {
   /* what?
@@ -125,6 +124,5 @@ import VitalSignsCard from './VitalSignsCard.vue';
    */
   max-height: calc(100vh - 10rem);
 }
-
 </style>
 

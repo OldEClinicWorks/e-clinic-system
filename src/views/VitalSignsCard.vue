@@ -1,3 +1,29 @@
+  
+<script setup lang="ts">
+
+import { IonIcon, IonLabel } from '@ionic/vue';
+import { reactive } from 'vue';
+
+
+import { swapHorizontal } from "ionicons/icons";
+
+const swap = () => {
+  console.log('swap clicked')
+}
+const userData = reactive({
+  avatarUrl: 'https://ucarecdn.com/904ba744-302a-4da5-bc68-6533308b7781/-/scale_crop/150x150/center/',
+  name: 'Idrees Ageed',
+  BP: '120/80',
+  PR: '107',
+  Temp: '30',
+  BPUnit: '℃',
+  PRUnit: '℃',
+  TempUnit: '℃',
+  isMouseOver: false,
+});
+
+</script>
+
 <template>
   <ion-page>
     <ion-card class="custom-card">
@@ -36,31 +62,6 @@
     </ion-card>
   </ion-page>
 </template>
-  
-<script setup lang="ts">
-
-import { IonIcon, IonLabel } from '@ionic/vue';
-import { reactive } from 'vue';
-
-
-import { swapHorizontal } from "ionicons/icons";
-
-const swap = () => {
-  console.log('swap clicked')
-}
-const userData = reactive({
-  avatarUrl: 'https://ucarecdn.com/904ba744-302a-4da5-bc68-6533308b7781/-/scale_crop/150x150/center/',
-  name: 'Idrees Ageed',
-  BP: '120/80',
-  PR: '107',
-  Temp: '30',
-  BPUnit: '℃',
-  PRUnit: '℃',
-  TempUnit: '℃',
-  isMouseOver: false,
-});
-
-</script>
   
 <style scoped>
 .icon-container {
