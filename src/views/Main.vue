@@ -97,7 +97,6 @@ import VitalSignsCard from './VitalSignsCard.vue';
 
 .xbase-col-content-h {
   max-height: calc(100vh - 10rem);
-
 }
 
 .xbase-col-content-h-left {}
