@@ -46,7 +46,6 @@
               <XBaseRightSide>
                 <h2 class="text-xl font-semibold mb-2">Right Column Header</h2>
                 <div class="overflow-y-auto xbase-col-content-h xbase-col-content-h-right">
-                  <Queue></Queue>
                 </div>
               </XBaseRightSide>
             </div>
