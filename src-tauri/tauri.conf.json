@@ -60,8 +60,8 @@
         "title": "secretary-app",
         "width": 800,
         "maximized": true,        
-        "closable": false,
-        "alwaysOnTop": true,
+        "closable": true,
+        "alwaysOnTop": false,
         "skipTaskbar": false
       }
     ]

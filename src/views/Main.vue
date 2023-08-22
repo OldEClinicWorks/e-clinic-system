@@ -40,8 +40,7 @@ import VitalSignsCard from './VitalSignsCard.vue';
               <XBaseLeftSide>
                 <UserProfileCard></UserProfileCard>
                 <VitalSignsCard></VitalSignsCard>
-                <VitalSignsCard></VitalSignsCard>
-                <VitalSignsCard></VitalSignsCard>
+                <VitalSignsCard></VitalSignsCard>                
               </XBaseLeftSide>
 
               <!-- Main Content with Header and Scrollable Container -->
