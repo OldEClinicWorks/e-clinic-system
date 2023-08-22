@@ -6,10 +6,10 @@
         <div class="flex-grow flex xbase-col-shadow-left-col">
           <!-- Vertical Left Toolbar -->
           <XBaseSideBarNav>
-            <div> item1 </div>
-            <div> item2 </div>
-            <div> item3 </div>
-            <div> item4 </div>
+            <div> item1</div>
+            <div> item2</div>
+            <div> item3</div>
+            <div> item4</div>
           </XBaseSideBarNav>
           <!-- Main View -->
           <div class="flex-grow flex flex-col">
@@ -19,34 +19,46 @@
             <div class="flex-grow  grid grid-cols-12 bg-gray">
               <!-- Left Sidebar with Header and Scrollable Container -->
               <XBaseLeftSide>
-                <h2 class="text-xl font-semibold mb-2">Left Column Header</h2>
-                <div class="overflow-y-auto xbase-col-content-h xbase-col-content-h-left">
-                  LEFT
-                  <UserProfileCard></UserProfileCard>
-                  <VitalSignsCard></VitalSignsCard>
-                </div>
+                <UserProfileCard></UserProfileCard>
+                <VitalSignsCard></VitalSignsCard>
+                <VitalSignsCard></VitalSignsCard>
+                <VitalSignsCard></VitalSignsCard>
               </XBaseLeftSide>
 
               <!-- Main Content with Header and Scrollable Container -->
               <XBaseCenter>
-                <h2 class="text-xl font-semibold mb-2">Main Column Header</h2>
-                <div class="xbase-col-content-h xbase-col-content-h-main overflow-y-auto">
-                  MAIN
-                  <div>line</div>
-                  <div>line</div>
-                  <div>line</div>
-                  <div>line</div>
-                  <div>line</div>
-                  <div>line</div>
-                  <div>line</div>
-                </div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
+                <div>line</div>
               </XBaseCenter>
 
               <!-- Right Sidebar with Header and Scrollable Container -->
               <XBaseRightSide>
-                <h2 class="text-xl font-semibold mb-2">Right Column Header</h2>
-                <div class="overflow-y-auto xbase-col-content-h xbase-col-content-h-right">
-                </div>
               </XBaseRightSide>
             </div>
 
@@ -62,7 +74,7 @@
 </template>
 
 <script setup lang="ts">
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import {IonContent, IonHeader, IonPage, IonTitle, IonToolbar} from '@ionic/vue';
 import XBaseSideBarNav from "@/views/layout/XBaseSideBarNav.vue";
 import XBaseHeader from "@/views/layout/XBaseHeader.vue";
 import XBaseLeftSide from "@/views/layout/XBaseLeftSide.vue";
@@ -81,74 +93,38 @@ import VitalSignsCard from './VitalSignsCard.vue';
 </script>
 
 
-
-<style scoped>
-.xbase-col-h {
+<style>
+.xbase-col-wrapper {
+  /* what?
+  * this is the wrapper containing
+  * default height for the main div container of a col
+  * any col component can override this by using a class
+  * inside that col component
+  *
+  * why?
+  * the screen is divided into: header, 3 columns, footer
+  * the size of the header and footer should remain the same,
+  * and the size for the columns should not change because if it
+  * it changed then the scroll bar will be shown on the right side
+  * of the screen
+  */
   max-height: calc(100vh - 7rem);
 }
 
-.xbase-col-h-left {}
-
-.xbase-col-h-main {
-  background-color: #f0f2f5;
-}
-
-.xbase-col-h-right {}
-
-.xbase-col-content-h {
+.xbase-col-content-wrapper {
+  /* what?
+   * this is the wrapper containing
+   * default height for 'content' of a col
+   * any col component can override this by using a class
+   * inside that col component
+   *
+   * why?
+   * each column has: header, content, footer.
+   * each one of these should have a dynamic height
+   * relative to the vh value
+   */
   max-height: calc(100vh - 10rem);
 }
 
-.xbase-col-content-h-left {}
-
-.xbase-col-content-h-main {}
-
-.xbase-col-content-h-right {}
-
-/*
-.xbase-col-shadow-left-col {
-  z-index: 10;
-  box-shadow: 5px 0 5px rgba(0, 0, 0, 0.3);  
-}
-
-.xbase-col-shadow-right-col {
-  z-index: 10;
-  box-shadow: -5px 0 5px rgba(0, 0, 0, 0.3);  
-}
-
-.xbase-col-shadow-both {
-  z-index: 20;
-  box-shadow:  
-    8px 0 0px -7px rgba(0,0,0, 0.3),
-    -8px 0 0px -7px rgba(0,0,0, 0.3);
-}
-*/
-
-/*
-#container {
-  text-align: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
-
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-  color: #8c8c8c;
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
-*/
 </style>
 
