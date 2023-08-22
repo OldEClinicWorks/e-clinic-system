@@ -63,7 +63,7 @@
 
 <script setup lang="ts">
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
-import XBaseSideBarNav from "@/views/layout/XBaseSideBarNav.vue";
+//import XBaseSideBarNav from "@/views/layout/XBaseSideBarNav.vue";
 import XBaseHeader from "@/views/layout/XBaseHeader.vue";
 import XBaseLeftSide from "@/views/layout/XBaseLeftSide.vue";
 import XBaseRightSide from "@/views/layout/XBaseRightSide.vue";
