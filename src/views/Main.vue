@@ -20,13 +20,9 @@
               <XBaseLeftSide>
                 <h2 class="text-xl font-semibold mb-2">Left Column Header</h2>
                 <div class="overflow-y-auto xbase-col-content-h xbase-col-content-h-left">
-                  LEFT
-                  <div>line</div>
-                  <div>line</div>
-                  <div>line</div>
-                  <div>line</div>
-                  <div>line</div>
-                  <div>line</div>
+                  LEFT                
+                  <UserProfileCard></UserProfileCard>                
+                  <VitalSignsCard></VitalSignsCard>
                 </div>
               </XBaseLeftSide>
 
@@ -77,6 +73,10 @@ import XBaseFooter from "@/views/layout/XBaseFooter.vue";
 
 // Queue
 import Queue from "@/views/components/queue/Queue.vue";
+
+// Left Side 
+import UserProfileCard from './UserProfileCard.vue';
+import VitalSignsCard from './VitalSignsCard.vue';
 
 </script>
 
