@@ -1,7 +1,7 @@
 <template>
     <div class="flex-col p-2  z-50">
-        <slot></slot>
-      </div>
+      <slot></slot>
+    </div>
 </template>
 
 <script setup>
