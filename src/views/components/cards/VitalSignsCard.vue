@@ -56,7 +56,7 @@ const userData = reactive({
           </div>
         </div>
         <div @click="swap" class="icon-container">
-          <ion-icon name="swap" :icon="swapHorizontal"></ion-icon>
+          <ion-icon :icon="swapHorizontal"></ion-icon>
         </div>
       </ion-card-content>
     </ion-card>

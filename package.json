@@ -20,9 +20,10 @@
     "@ionic/vue": "^7.3.0",
     "@ionic/vue-router": "^7.0.0",
     "@tauri-apps/api": "^1.4.0",
+    "@types/vuedraggable": "^2.24.0",
     "ionicons": "^7.1.2",
     "terser": "^5.19.2",
-    "vue": "^3.2.45",
+    "vue": "^3.3.4",
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
