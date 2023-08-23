@@ -10,6 +10,11 @@ import XBaseFooter from "@/views/layout/XBaseFooter.vue";
 // Left Side 
 import UserProfileCard from './UserProfileCard.vue';
 import VitalSignsCard from './VitalSignsCard.vue';
+// Queue
+import Queue from "@/views/components/queue/Queue.vue";
+
+
+
 
 </script>
 
@@ -34,9 +39,7 @@ import VitalSignsCard from './VitalSignsCard.vue';
             <div class="flex-grow  grid grid-cols-12 bg-gray">
               <!-- Left Sidebar with Header and Scrollable Container -->
               <XBaseLeftSide>
-                <UserProfileCard></UserProfileCard>
-                <VitalSignsCard></VitalSignsCard>
-                <VitalSignsCard></VitalSignsCard>                
+               
                 <VitalSignsCard></VitalSignsCard>                
                 <VitalSignsCard></VitalSignsCard>                
               </XBaseLeftSide>

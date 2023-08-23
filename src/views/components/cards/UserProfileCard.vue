@@ -29,7 +29,7 @@ const userData = reactive({
           </ion-avatar>
           <div class="profile-details">
             <ion-label class="profile-name">{{ userData.name }}</ion-label>
-            <ion-icon name="md-male" class="gender-icon"></ion-icon>
+            <ion-icon :icon="male" class="gender-icon"></ion-icon>
           </div>
         </div><br>
         <div class="user-info">
@@ -49,9 +49,10 @@ const userData = reactive({
           </div>
         </div>
         <div @click="swap" class="icon-container">
-          <ion-icon name="swap" :icon="swapHorizontal"></ion-icon>
+          <ion-icon :icon="swapHorizontal"></ion-icon>
         </div>
       </ion-card-content>
+      
     </ion-card>
   </ion-page>
 </template>
