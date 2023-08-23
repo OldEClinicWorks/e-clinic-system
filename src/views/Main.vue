@@ -7,10 +7,6 @@ import XBaseRightSide from "@/views/layout/XBaseRightSide.vue";
 import XBaseCenter from "@/views/layout/XBaseCenter.vue";
 import XBaseFooter from "@/views/layout/XBaseFooter.vue";
 
-
-// Queue
-import Queue from "@/views/components/queue/Queue.vue";
-
 // Left Side 
 import UserProfileCard from './UserProfileCard.vue';
 import VitalSignsCard from './VitalSignsCard.vue';
@@ -40,6 +36,8 @@ import VitalSignsCard from './VitalSignsCard.vue';
               <XBaseLeftSide>
                 <UserProfileCard></UserProfileCard>
                 <VitalSignsCard></VitalSignsCard>
+                <VitalSignsCard></VitalSignsCard>                
+                <VitalSignsCard></VitalSignsCard>                
                 <VitalSignsCard></VitalSignsCard>                
               </XBaseLeftSide>
 
@@ -76,7 +74,7 @@ import VitalSignsCard from './VitalSignsCard.vue';
               </XBaseCenter>
 
               <!-- Right Sidebar with Header and Scrollable Container -->
-              <XBaseRightSide>
+              <XBaseRightSide>                
               </XBaseRightSide>
             </div>
 

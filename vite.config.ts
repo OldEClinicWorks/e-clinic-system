@@ -6,12 +6,14 @@ import { defineConfig } from 'vitest/config';
 import postcss from 'postcss';
 import tailwindcss from 'tailwindcss';
 import autoprefixer from 'autoprefixer';
+import svgLoader from 'vite-svg-loader';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
-    legacy()
+    legacy(),
+    svgLoader()
   ],
   resolve: {
     alias: {

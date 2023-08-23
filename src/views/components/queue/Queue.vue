@@ -1,38 +1,25 @@
 <script setup lang="ts">
-import {IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonIcon} from '@ionic/vue';
-import {caretForwardCircle, caretBackCircle, caretBack} from "ionicons/icons";
+import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonIcon } from '@ionic/vue';
+import { arrowUndoCircleOutline, arrowRedoCircleOutline } from "ionicons/icons";
+import { reactive } from "vue";
+
+
+const dateSwitcher = {
+    
+}
+const arrowIconClasses = {
+    "h-10 w-10":true,    
+}
+
 
 </script>
 <template>
-  <ion-toolbar>
-    <ion-buttons class="ion-margin ion-no-padding">
-      <ion-button>
-        <ion-icon slot="icon-only" :icon="caretBackCircle"></ion-icon>
-      </ion-button>
-      <ion-button>
-        Date
-      </ion-button>
-      <ion-button>
-        <ion-icon slot="icon-only" :icon="caretForwardCircle"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-  </ion-toolbar>
-  <ion-card>
+    <div class="shadow-lg bg-white-400 flex p-2 m-2 rounded-2xl">
+        <ion-icon :icon="arrowUndoCircleOutline" :class="arrowIconClasses"></ion-icon>
+        <ion-icon :icon="arrowRedoCircleOutline" :class="arrowIconClasses"></ion-icon>        
+    </div>
 
-    <ion-card-content>
-
-    </ion-card-content>
-  </ion-card>
-  <ion-card>
-    <ion-card-header>
-
-    </ion-card-header>
-    <ion-card-content>
-      Here's a small text description for the card content. Nothing more, nothing less.
-    </ion-card-content>
-  </ion-card>
 </template>
 
 <style scoped>
-
 </style>

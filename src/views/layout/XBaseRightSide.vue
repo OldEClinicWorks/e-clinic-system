@@ -1,12 +1,14 @@
 <script setup lang="ts">
+// Queue
+import Queue from "@/views/components/queue/Queue.vue";
 
 </script>
 
 <template>
   <div class="col-span-3 bg-gray-200 text-white xbase-col-wrapper xbase-col-h-right">
-    <div class="p-2 pr-0">
+    <div class="p-2">
       <div class="overflow-y-auto xbase-col-content-wrapper">
-        <slot></slot>
+        <Queue></Queue>        
       </div>
     </div>
   </div>
