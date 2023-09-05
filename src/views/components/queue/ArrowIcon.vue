@@ -9,7 +9,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <ion-icon :name="props.name" :icon="props.icon" class="h-10 w-10 cursor-pointer arrowStyle"></ion-icon>
+    <IonIcon :name="props.name" :icon="props.icon" class="h-10 w-10 cursor-pointer arrowStyle"></IonIcon>
 </template>
 
 <style lang="scss" scoped>

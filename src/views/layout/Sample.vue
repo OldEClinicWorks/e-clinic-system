@@ -1,20 +1,27 @@
 <script setup lang="ts">
-import {useSampleStore} from '@/store/sample';
-const store = useSampleStore();
+import { useTodoItemStore } from '@/store/TodoItem';
+import { ref } from 'vue';
+const store = useTodoItemStore();
+const inputValue = ref('');
+const { state, getItems, addItem, fetchItems } = store;
 const addRecord = () => {
-    const input = document.getElementById('name');
-    console.log(input);
+    addItem(inputValue.value);
+}
+const fetch = () => {
+    fetchItems();
+    addItem('fetched data');
 }
 </script>
 
 <template>
     <ul>
-        <li>item1</li>
+        <li v-for="item in getItems()">{{ item }}</li>
     </ul>
     <div>
-        <input id="name" type="text" name="name" />
-        <input type="submit" @click="addRecord" />
+        <input id="name" type="text" name="name" v-model="inputValue" /><br>
+        <input type="submit" @click="addRecord" /><br>
+        <input type="button" @click="fetch" name="fetch" />
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped></style>@/store/todo

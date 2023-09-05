@@ -1,0 +1,22 @@
+{
+  "development": {
+    "type": "sqlite",
+    "database": "./src/TypeORM/Database/database.db",
+    "synchronize": true,
+    "logging": true,
+    "entities": ["src/TypeORM/Entities/**/*.ts"],
+    "cli": {
+      "entitiesDir": "src/TypeORM/Entities"
+    }
+  },
+  "production": {
+    "type": "sqlite",
+    "database": "./src/TypeORM/Database/database.db",
+    "synchronize": true,
+    "logging": true,
+    "entities": ["src/TypeORM/Entities/**/*.ts"],
+    "cli": {
+      "entitiesDir": "src/TypeORM/Entities"
+    }
+  }
+}
