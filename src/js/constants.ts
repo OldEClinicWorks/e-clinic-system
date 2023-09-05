@@ -1,0 +1,2 @@
+
+export const ION_DATETIME_DEFAULT_DATE_FORMAT = 'YYYY-MM-DDTHH:mm:ss'

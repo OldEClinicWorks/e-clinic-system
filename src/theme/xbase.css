@@ -1,4 +1,8 @@
 /* theme colors */
 :root{
-    --xbase-color-primary: #f2f2f2;
+    --xbase-color-primary: #5DB3A8;
+    --xbase-color-white: #FFF;
+    --left-side-cards-icon-container:#4f4e4d;
+    --left-side-card-line-divider-color:#FFF;
+
 }

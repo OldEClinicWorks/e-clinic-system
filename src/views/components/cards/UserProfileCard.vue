@@ -64,7 +64,7 @@ const userData = reactive({
   right: 10px;
   width: 30px;
   height: 30px;
-  background-color: #4f4e4d;
+  background-color: var(--left-side-cards-icon-container);
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -79,13 +79,13 @@ const userData = reactive({
 }
 
 .line {
-  border-left: 1px solid rgb(255, 255, 255);
+  border-left: 1px solid var(--left-side-card-line-divider-color);
   opacity: 40%;
 }
 
 .custom-card {
   border-radius: 15px;
-  background: #5DB3A8;
+  background: var(--xbase-color-primary);
   color: white;
 }
 

@@ -3,10 +3,11 @@
 </script>
 
 <template>
-  <div class="col-span-6 xbase-col-wrapper  text-black ">
-    <div class="p-2 pt-0">
-      <div class="xbase-col-content-wrapper center-col-content-h overflow-y-auto">
+  <div class="xbase-col-wrapper flex flex-grow  text-black ">
+    <div class="w-full">
+      <div class="p-2 text-white w-full flex flex-col xbase-col-content-wrapper center-col-content-h overflow-y-auto">
         <slot></slot>
+
       </div>
     </div>
   </div>

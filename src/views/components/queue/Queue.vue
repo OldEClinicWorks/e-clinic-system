@@ -1,25 +1,37 @@
 <script setup lang="ts">
 import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonIcon } from '@ionic/vue';
+import { event } from '@tauri-apps/api';
+import { getRenderingRef } from 'ionicons/dist/types/stencil-public-runtime';
 import { arrowUndoCircleOutline, arrowRedoCircleOutline } from "ionicons/icons";
 import { reactive } from "vue";
+import ArrowIcon from "./ArrowIcon.vue";
+import DateSwitcher from './DateSwitcher.vue';
+import QueueCardsContainer from './QueueCardsContainer.vue';
+import QueueCard from './QueueCard.vue';
+import QueueActions from './QueueActions.vue';
 
+import { storeToRefs } from "pinia";
+import { useAppointmentStore } from '@/store/appointment';
 
-const dateSwitcher = {
-    
-}
-const arrowIconClasses = {
-    "h-10 w-10":true,    
-}
-
+const store = useAppointmentStore();
+store.fetchAppointments();
+const { appointments } = storeToRefs(store);
 
 </script>
 <template>
-    <div class="shadow-lg bg-white-400 flex p-2 m-2 rounded-2xl">
-        <ion-icon :icon="arrowUndoCircleOutline" :class="arrowIconClasses"></ion-icon>
-        <ion-icon :icon="arrowRedoCircleOutline" :class="arrowIconClasses"></ion-icon>        
+    <div class="flex flex-col queue-h p-0 m-0">
+        <DateSwitcher></DateSwitcher>
+        <QueueActions></QueueActions>
+        <QueueCardsContainer class="flex p-1">
+            <QueueCard v-for="appointment in appointments" :appointment="appointment">
+            </QueueCard>
+        </QueueCardsContainer>
     </div>
-
 </template>
 
-<style scoped>
+
+<style lang="scss" scoped>
+.queue-h {
+    height: 100%;
+}
 </style>

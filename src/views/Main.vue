@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
 import XBaseSideBarNav from "@/views/layout/XBaseSideBarNav.vue";
 import XBaseHeader from "@/views/layout/XBaseHeader.vue";
@@ -8,88 +9,16 @@ import XBaseCenter from "@/views/layout/XBaseCenter.vue";
 import XBaseFooter from "@/views/layout/XBaseFooter.vue";
 
 // Left Side 
-import UserProfileCard from './UserProfileCard.vue';
-import VitalSignsCard from './VitalSignsCard.vue';
+import UserProfileCard from '@/views/components/cards/UserProfileCard.vue';
+import VitalSignsCard from '@/views/components/cards/VitalSignsCard.vue';
 // Queue
 import Queue from "@/views/components/queue/Queue.vue";
 
-
-
-
+import Sample from "@/views/layout/Sample.vue"
 </script>
 
 <template>
-  <ion-page>
-    <ion-content :fullscreen="true">
-      <!-- SCREEN -->
-      <div class="flex flex-col min-h-screen">
-        <div class="flex-grow flex xbase-col-shadow-left-col">
-          <!-- Vertical Left Toolbar -->
-          <XBaseSideBarNav>
-            <div> item1</div>
-            <div> item2</div>
-            <div> item3</div>
-            <div> item4</div>
-          </XBaseSideBarNav>
-          <!-- Main View -->
-          <div class="flex-grow flex flex-col">
-            <!-- Header -->
-            <XBaseHeader></XBaseHeader>
-            <!-- Content -->
-            <div class="flex-grow  grid grid-cols-12 bg-gray">
-              <!-- Left Sidebar with Header and Scrollable Container -->
-              <XBaseLeftSide>
-               
-                <VitalSignsCard></VitalSignsCard>                
-                <VitalSignsCard></VitalSignsCard>                
-              </XBaseLeftSide>
-
-              <!-- Main Content with Header and Scrollable Container -->
-              <XBaseCenter>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-              </XBaseCenter>
-
-              <!-- Right Sidebar with Header and Scrollable Container -->
-              <XBaseRightSide>                
-              </XBaseRightSide>
-            </div>
-
-            <!-- Footer -->
-            <XBaseFooter>
-              Footer Content Here
-            </XBaseFooter>
-          </div>
-        </div>
-      </div>
-    </ion-content>
-  </ion-page>
+  <Sample></Sample>
 </template>
 
 <style>

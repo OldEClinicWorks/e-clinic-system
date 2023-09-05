@@ -14,7 +14,6 @@ const cards = [
   { type: UserProfileCard },
   { type: VitalSignsCard },
   { type: VitalSignsCard },
-  
 ];
 </script>
 
@@ -36,9 +35,11 @@ const cards = [
 <style scoped>
 .eclinic-left-col-cards-container {
   height: calc(100vh - 7rem);
+  width: 310px;
+  max-width: 310px;
 }
 .xbase-col-content-wrapper{
-  max-height: calc(100vh - 7rem);
+  max-height: calc(100vh - 7rem);  
 }
 .xbase-col-shadow-left-col {
   z-index: 10;
