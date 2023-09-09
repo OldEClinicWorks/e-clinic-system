@@ -1,0 +1,8 @@
+step 1: change sqlite3_binding.js binary path to prod
+step 2: change config mode in config.js from dev to prod 
+step 3: in backend dir, run pkg ./build/index.js --debug --target [sepecify your target os!!] 
+step 4: rename the generated package "index.exe" using "rename" app created with node js inside backend folder to add the system stuff and x64
+
+step 4: copy this new index-xx-xx-xx.exe  to "src-tauri/binaries/app/bin/"
+
+step 5: build tauri app and test 

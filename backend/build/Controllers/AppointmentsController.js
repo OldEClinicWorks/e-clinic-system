@@ -1,10 +1,9 @@
-import { IAppointmentFaker } from "../Contracts/Models/IAppointment.js";
-export const AppointmentsController = {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.AppointmentsController = void 0;
+exports.AppointmentsController = {
     getAppointments(req, res) {
         let arr = [];
-        for (let index = 0; index < 5; index++) {
-            arr.push(IAppointmentFaker());
-        }
         return res.status(200).json(arr);
     },
     getAppointmentStatuses(req, res) {

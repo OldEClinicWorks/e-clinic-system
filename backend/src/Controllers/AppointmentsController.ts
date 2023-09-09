@@ -1,11 +1,8 @@
-import { IAppointmentFaker } from "../Contracts/Models/IAppointment.js";
+import { IAppointmentFaker } from "../abandoned/Models/IAppointment.js";
 
 export const AppointmentsController = {
   getAppointments(req: any, res: any): void {
     let arr = [];
-    for (let index = 0; index < 5; index++) {
-      arr.push(IAppointmentFaker());
-    }
     return res.status(200).json(arr);
   },
   getAppointmentStatuses(req: any, res: any): void {

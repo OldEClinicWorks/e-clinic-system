@@ -20,7 +20,7 @@ const fetch = () => {
     <div>
         <input id="name" type="text" name="name" v-model="inputValue" /><br>
         <input type="submit" @click="addRecord" /><br>
-        <input type="button" @click="fetch" name="fetch" />
+        <input type="button" @click="fetch" value="fetch" />
     </div>
 </template>
 

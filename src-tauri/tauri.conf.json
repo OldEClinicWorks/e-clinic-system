@@ -10,9 +10,6 @@
     "version": "0.1.0"
   },
   "tauri": {
-    "allowlist": {
-      "all": false
-    },
     "bundle": {
       "active": true,
       "category": "DeveloperTool",
@@ -20,9 +17,7 @@
       "deb": {
         "depends": []
       },
-      "externalBin": [
-        
-      ],
+      "externalBin": ["binaries/index"],
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",
@@ -30,7 +25,7 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "identifier": "com.tauri.dev",
+      "identifier": "com.tauri.prod",
       "longDescription": "",
       "macOS": {
         "entitlements": null,
@@ -39,13 +34,58 @@
         "providerShortName": null,
         "signingIdentity": null
       },
-      "resources": [],
+      "resources": ["app\\deps\\cipher.node"],
       "shortDescription": "",
       "targets": "all",
       "windows": {
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",
         "timestampUrl": ""
+      }
+    },
+    "allowlist": {
+      "fs": {
+        "scope": ["$RESOURCE/*"]
+      },
+      "shell": {
+        "sidecar": true,
+        "scope": [{ "name": "binaries/index", "sidecar": true }]
+      },
+      "window": {
+        "all": true,
+        "create": true,
+        "center": true,
+        "requestUserAttention": true,
+        "setResizable": true,
+        "setMaximizable": true,
+        "setMinimizable": true,
+        "setClosable": true,
+        "setTitle": true,
+        "maximize": true,
+        "unmaximize": true,
+        "minimize": true,
+        "unminimize": true,
+        "show": true,
+        "hide": true,
+        "close": true,
+        "setDecorations": true,
+        "setAlwaysOnTop": true,
+        "setContentProtected": true,
+        "setSize": true,
+        "setMinSize": true,
+        "setMaxSize": true,
+        "setPosition": true,
+        "setFullscreen": true,
+        "setFocus": true,
+        "setIcon": true,
+        "setSkipTaskbar": true,
+        "setCursorGrab": true,
+        "setCursorVisible": true,
+        "setCursorIcon": true,
+        "setCursorPosition": true,
+        "setIgnoreCursorEvents": true,
+        "startDragging": true,
+        "print": true
       }
     },
     "security": {
@@ -61,7 +101,7 @@
         "resizable": true,
         "title": "secretary-app",
         "width": 800,
-        "maximized": true,        
+        "maximized": true,
         "closable": true,
         "alwaysOnTop": false,
         "skipTaskbar": false

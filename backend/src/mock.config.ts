@@ -2,7 +2,7 @@
 // !discontuned, use fakers inside Interface files instead
 // 
 import { faker } from "@faker-js/faker";
-import { xEmail, xName } from "./CustomTypes/xTypes";
+import { xEmail, xName } from "./abandoned/CustomTypes/xTypes";
 
 export const mockConfig = {
   primitiveValues: {

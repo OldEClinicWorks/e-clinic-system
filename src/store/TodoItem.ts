@@ -3,6 +3,7 @@ import { ref } from "vue";
 import axios from "axios";
 
 export const useTodoItemStore = defineStore("TodoItem", () => {
+
   let array: any[] = [];
   const state = ref(array);
 

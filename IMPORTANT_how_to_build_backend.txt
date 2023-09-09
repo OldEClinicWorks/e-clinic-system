@@ -1,0 +1,30 @@
+// ATTENTION!
+/**
+ * SQLCIPHER_DEP_PATH, I could not find a way to dynamically change this
+ * reference in the sqlcipher package
+ *
+ * for now, whenever moving to PROD, do the following:
+ *
+ * ######
+ * STEP 1: make sure to change
+ * the line 3: var binding_path = "app/deps/cipher.node";
+ * to its apporperate value below before compiling using pkg 
+ *
+ * this file is found in:
+ *   backend/node_modules/@journeyapps/sqlcipher/lib
+ *                                      /sqlite3-binding.js
+ *
+ * make sure to make this change, otherwise the prod won't work
+ *
+ * ######
+ * STEP 2: make sure to copy the binary itself
+ *   and rename it to cipher.node
+ * FROM:
+ *  backend/node_modules/@journeyapps/sqlcipher/lib/binding/.**'/*.node
+ * TO:
+ *  src-tauri/app/deps 
+ *
+ * ######
+ *
+ * these 2 steps will assure that the backend will run
+ */

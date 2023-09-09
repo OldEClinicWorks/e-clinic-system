@@ -6,20 +6,26 @@ import {
   JoinColumn,
   BaseEntity,
 } from "typeorm";
-import { IUser } from "./Contracts/IUser.js";
+import { IUser } from "./User";
 
-@Entity()
+@Entity({ name: "todo_items" })
 export class TodoItem extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({ name: "title" })
   title: string;
 
   @Column({ name: "owner_id" })
   ownerId: number;
 
-  @ManyToOne('User', 'TodoItem')
+  @ManyToOne("User", "TodoItem")
   @JoinColumn({ name: "owner_id" })
   owner: IUser;
+}
+
+export interface ITodoItem {
+  id: number;
+  title: string;
+  ownerId: number;
 }

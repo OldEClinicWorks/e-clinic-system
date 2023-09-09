@@ -1,15 +1,10 @@
 import { ISecretaryController } from "../Contracts/Controllers/ISecretaryController.js";
-import { IPatient, IPatientFaker } from "../Contracts/Models/IPatient.js";
 
 // implement secretary interface
 export const SecretaryController: ISecretaryController = {
   // patient methods
   getPatients(req: any, res: any) {
     let patients = [];
-    for (let i = 0; i < 5; i++) {
-      const mockPatient: IPatient = IPatientFaker();      
-      patients.push(mockPatient);
-    }
     return res.status(200).json({ patients });
   },
   addPatient(req: any, res: any): void {

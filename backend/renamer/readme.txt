@@ -1,0 +1,1 @@
+run node rename.js to add OS type and x32 or x64

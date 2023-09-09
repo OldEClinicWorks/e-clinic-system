@@ -1,14 +1,32 @@
-import { DataSource } from "typeorm";
-import { User } from "./TypeORM/Entities/User.js";
-import { TodoItem } from "./TypeORM/Entities/TodoItem.js";
-import { CreateUserTable1693811920876 } from "./TypeORM/Migrations/1693811920876-CreateUserTable.js";
-import { CreateTodoItemTable1693811936730 } from "./TypeORM/Migrations/1693811936730-CreateTodoItemTable.js";
-export const SQLiteDataSource = new DataSource({
-    type: "sqlite",
-    // with tauri should be: database: "../backend/Database/database.db",
-    database: "../backend/Database/database.db",
-    entities: [User, TodoItem],
-    migrations: [CreateUserTable1693811920876, CreateTodoItemTable1693811936730],
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.SQLiteDataSource = void 0;
+const typeorm_1 = require("typeorm");
+const User_js_1 = require("./TypeORM/Entities/User.js");
+const TodoItem_js_1 = require("./TypeORM/Entities/TodoItem.js");
+const config_js_1 = require("./config.js");
+const connOptions = {
+    driver: config_js_1.DB_DRIVER,
+    key: config_js_1.DB_ENCRYPT_KEY,
+    type: config_js_1.DB_TYPE,
+    database: config_js_1.DB_CHECK_ACCESS,
+    entities: [User_js_1.User, TodoItem_js_1.TodoItem],
     synchronize: true,
-    logging: false, // Disable logging (or set to true for debugging)
-});
+    logging: false,
+    enableWAL: true,
+};
+exports.SQLiteDataSource = new typeorm_1.DataSource(connOptions);
+function test() {
+    try {
+        exports.SQLiteDataSource.initialize()
+            .then(() => {
+            console.log("DataSource initialized.");
+        })
+            .catch((error) => {
+            console.log("error initializing DataSource:" + error);
+        });
+    }
+    catch (error) {
+        console.log("datasource error: ", error);
+    }
+}

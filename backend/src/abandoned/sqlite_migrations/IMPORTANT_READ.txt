@@ -1,0 +1,3 @@
+this folder is no longer used
+
+we are using TypeORM for creating tables, migration, and connection 

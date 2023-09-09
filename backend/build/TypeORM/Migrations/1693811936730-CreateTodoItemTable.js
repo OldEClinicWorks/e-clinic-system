@@ -1,9 +1,12 @@
-import { __awaiter } from "tslib";
-import { Table, TableColumn, TableForeignKey, } from "typeorm";
-export class CreateTodoItemTable1693811936730 {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateTodoItemTable1693811936730 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateTodoItemTable1693811936730 {
     up(queryRunner) {
-        return __awaiter(this, void 0, void 0, function* () {
-            yield queryRunner.createTable(new Table({
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.createTable(new typeorm_1.Table({
                 name: "todo_item",
                 columns: [
                     {
@@ -17,32 +20,29 @@ export class CreateTodoItemTable1693811936730 {
                         name: "title",
                         type: "varchar",
                     },
-                    // Add more columns if necessary
                 ],
             }));
-            // Add a foreign key constraint to link the owner_id to the User table
-            yield queryRunner.addColumn("todo_item", new TableColumn({
+            yield queryRunner.addColumn("todo_item", new typeorm_1.TableColumn({
                 name: "owner_id",
                 type: "integer",
             }));
-            yield queryRunner.createForeignKey("todo_item", new TableForeignKey({
+            yield queryRunner.createForeignKey("todo_item", new typeorm_1.TableForeignKey({
                 columnNames: ["owner_id"],
                 referencedColumnNames: ["id"],
                 referencedTableName: "user",
-                onDelete: "CASCADE", // Specify the desired behavior on deletion
+                onDelete: "CASCADE",
             }));
         });
     }
     down(queryRunner) {
-        return __awaiter(this, void 0, void 0, function* () {
-            // Drop the foreign key constraint first
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
             const table = yield queryRunner.getTable("todo_item");
             const foreignKey = table.foreignKeys.find((fk) => fk.columnNames.includes("owner_id"));
             if (foreignKey) {
                 yield queryRunner.dropForeignKey("todo_item", foreignKey);
             }
-            // Drop the TodoItem table
             yield queryRunner.dropTable("todo_item");
         });
     }
 }
+exports.CreateTodoItemTable1693811936730 = CreateTodoItemTable1693811936730;

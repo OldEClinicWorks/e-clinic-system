@@ -1,9 +1,12 @@
-import { __awaiter } from "tslib";
-import { Table } from "typeorm";
-export class CreateUserTable1693811920876 {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateUserTable1693811920876 = void 0;
+const tslib_1 = require("tslib");
+const typeorm_1 = require("typeorm");
+class CreateUserTable1693811920876 {
     up(queryRunner) {
-        return __awaiter(this, void 0, void 0, function* () {
-            yield queryRunner.createTable(new Table({
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            yield queryRunner.createTable(new typeorm_1.Table({
                 name: "user",
                 columns: [
                     {
@@ -17,14 +20,14 @@ export class CreateUserTable1693811920876 {
                         name: "name",
                         type: "varchar",
                     },
-                    // Add more columns if necessary
                 ],
             }));
         });
     }
     down(queryRunner) {
-        return __awaiter(this, void 0, void 0, function* () {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
             yield queryRunner.dropTable("user");
         });
     }
 }
+exports.CreateUserTable1693811920876 = CreateUserTable1693811920876;
