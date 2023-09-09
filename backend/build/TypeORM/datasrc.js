@@ -4,8 +4,8 @@ exports.SQLiteDataSource = void 0;
 const typeorm_1 = require("typeorm");
 const User_js_1 = require("./Entities/User.js");
 const TodoItem_js_1 = require("./Entities/TodoItem.js");
-const config_js_1 = require("../config.js");
 const JwtToken_js_1 = require("./Entities/JwtToken.js");
+const config_js_1 = require("../config.js");
 const connOptions = {
     driver: config_js_1.DB_DRIVER,
     key: config_js_1.DB_ENCRYPT_KEY,
