@@ -22,6 +22,7 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */,
     "removeComments": true
   },
-  "exclude": ["node_modules", "src/abandoned", "src/Tests", "src/TypeORM"],
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["node_modules", "src/abandoned", "src/Tests"]
+  
 }

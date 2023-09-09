@@ -1,5 +1,3 @@
-import { IAppointmentFaker } from "../abandoned/Models/IAppointment.js";
-
 export const AppointmentsController = {
   getAppointments(req: any, res: any): void {
     let arr = [];

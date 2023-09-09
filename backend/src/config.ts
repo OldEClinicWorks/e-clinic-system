@@ -75,4 +75,11 @@ if (APP_MODE === APP_MODE_DEV) {
   DB_DATABASE_DIR = path.join(__dirname, "app", "data");
   DB_CHECK_ACCESS = path.join(__dirname, "app", "data", "app.data");
 }
+
+export function app_is_in_prod_mode() {
+  return APP_MODE === APP_MODE_PROD;
+}
+export function app_is_in_dev_mode() {
+  return APP_MODE === APP_MODE_DEV;
+}
 export { SQLCIPHER_DEP_PATH, DB_DATABASE_DIR, DB_CHECK_ACCESS };

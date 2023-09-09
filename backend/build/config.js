@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DB_CHECK_ACCESS = exports.DB_DATABASE_DIR = exports.SQLCIPHER_DEP_PATH = exports.DB_TYPE = exports.DB_ENCRYPT_KEY = exports.DB_DRIVER = exports.SECRET_URL_PASS = exports.SECRET_URL = exports.APP_MODE = exports.APP_MODE_PROD = exports.APP_MODE_DEV = exports.JWT_TOKEN_EXPIRE_TIME = exports.JWT_SECRET = exports.API = exports.PORT = void 0;
+exports.DB_CHECK_ACCESS = exports.DB_DATABASE_DIR = exports.SQLCIPHER_DEP_PATH = exports.app_is_in_dev_mode = exports.app_is_in_prod_mode = exports.DB_TYPE = exports.DB_ENCRYPT_KEY = exports.DB_DRIVER = exports.SECRET_URL_PASS = exports.SECRET_URL = exports.APP_MODE = exports.APP_MODE_PROD = exports.APP_MODE_DEV = exports.JWT_TOKEN_EXPIRE_TIME = exports.JWT_SECRET = exports.API = exports.PORT = void 0;
 const tslib_1 = require("tslib");
 const path_1 = tslib_1.__importDefault(require("path"));
 const sqlcipher_1 = tslib_1.__importDefault(require("@journeyapps/sqlcipher"));
@@ -31,3 +31,11 @@ if (exports.APP_MODE === exports.APP_MODE_DEV) {
     exports.DB_DATABASE_DIR = DB_DATABASE_DIR = path_1.default.join(__dirname, "app", "data");
     exports.DB_CHECK_ACCESS = DB_CHECK_ACCESS = path_1.default.join(__dirname, "app", "data", "app.data");
 }
+function app_is_in_prod_mode() {
+    return exports.APP_MODE === exports.APP_MODE_PROD;
+}
+exports.app_is_in_prod_mode = app_is_in_prod_mode;
+function app_is_in_dev_mode() {
+    return exports.APP_MODE === exports.APP_MODE_DEV;
+}
+exports.app_is_in_dev_mode = app_is_in_dev_mode;
