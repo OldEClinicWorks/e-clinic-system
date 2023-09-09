@@ -4,11 +4,11 @@ import { event } from '@tauri-apps/api';
 import { getRenderingRef } from 'ionicons/dist/types/stencil-public-runtime';
 import { arrowUndoCircleOutline, arrowRedoCircleOutline } from "ionicons/icons";
 import { reactive } from "vue";
-import ArrowIcon from "./ArrowIcon.vue";
-import DateSwitcher from './DateSwitcher.vue';
-import QueueCardsContainer from './QueueCardsContainer.vue';
-import QueueCard from './QueueCard.vue';
-import QueueActions from './QueueActions.vue';
+import ArrowIcon from "./sub_components/ArrowIcon.vue";
+import DateSwitcher from './sub_components/DateSwitcher.vue';
+import QueueCardsContainer from './sub_components/QueueCardsContainer.vue';
+import QueueCard from './sub_components/QueueCard.vue';
+import QueueActions from './sub_components/QueueActions.vue';
 
 import { storeToRefs } from "pinia";
 import { useAppointmentStore } from '@/store/appointment';
