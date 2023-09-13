@@ -1,0 +1,11 @@
+// to create the migrations 
+
+// ** independent entities
+// we need to create the independent entities first
+
+// ** dependent entities
+// we need to create independed columns of dependent entitites first 
+// then 
+// after creating the dependent tables 
+// we can add add_fk_to_those_tables 
+

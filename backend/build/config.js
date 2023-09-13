@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DB_CHECK_ACCESS = exports.DB_DATABASE_DIR = exports.SQLCIPHER_DEP_PATH = exports.app_is_in_dev_mode = exports.app_is_in_prod_mode = exports.DB_TYPE = exports.DB_ENCRYPT_KEY = exports.DB_DRIVER = exports.SECRET_URL_PASS = exports.SECRET_URL = exports.APP_MODE = exports.APP_MODE_PROD = exports.APP_MODE_DEV = exports.JWT_TOKEN_EXPIRE_TIME = exports.JWT_SECRET = exports.API = exports.PORT = void 0;
+exports.DB_CHECK_ACCESS = exports.DB_DATABASE_DIR = exports.SQLCIPHER_DEP_PATH = exports.app_is_in_dev_mode = exports.app_is_in_prod_mode = exports.DB_TYPE = exports.DB_ENCRYPT_KEY = exports.DB_DRIVER = exports.SSL_KEY = exports.SSL_CERT = exports.SECRET_URL_PASS = exports.SECRET_URL = exports.APP_MODE = exports.APP_MODE_PROD = exports.APP_MODE_DEV = exports.JWT_TOKEN_EXPIRE_TIME = exports.JWT_SECRET = exports.API = exports.PORT = void 0;
 const tslib_1 = require("tslib");
 const path_1 = tslib_1.__importDefault(require("path"));
 const sqlcipher_1 = tslib_1.__importDefault(require("@journeyapps/sqlcipher"));
@@ -13,6 +13,8 @@ exports.APP_MODE_PROD = 0;
 exports.APP_MODE = exports.APP_MODE_DEV;
 exports.SECRET_URL = "secret_F0IjoxNjk0MjQ23owyr34kjgk";
 exports.SECRET_URL_PASS = "7inys34i76rwqci34y2q3o;f";
+exports.SSL_CERT = "";
+exports.SSL_KEY = "";
 exports.DB_DRIVER = sqlcipher_1.default;
 exports.DB_ENCRYPT_KEY = "hash19Salar1417";
 exports.DB_TYPE = "sqlite";

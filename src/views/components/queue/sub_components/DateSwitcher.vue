@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { IonDatetime, IonDatetimeButton, IonModal } from "@ionic/vue";
 import { arrowUndoCircleOutline, arrowRedoCircleOutline } from "ionicons/icons";
-import { reactive, ref, computed } from "vue";
+import { computed } from "vue";
 import { useQueueStore } from "@/store/queue/store";
 
 import moment from "moment";
@@ -11,9 +11,11 @@ import { ION_DATETIME_DEFAULT_DATE_FORMAT } from '@/js/constants';
 import ArrowIcon from "./ArrowIcon.vue";
 import { storeToRefs } from "pinia";
 
-const queueStore = useQueueStore();
-const { appointments, fetchAppointments, selectedDate } = storeToRefs(queueStore);
+const queueStore = useQueueStore()
+const { appointments, selectedDate } = storeToRefs(queueStore);
+const { fetchAppointments } = useQueueStore();
 
+fetchAppointments();
 const specificDateFormat = ION_DATETIME_DEFAULT_DATE_FORMAT;
 
 const emit = defineEmits([
@@ -77,7 +79,7 @@ function subtractDays(date: moment.MomentInput, days: any): any {
             <ArrowIcon id="leftArrow" @click="onArrowClicked" :icon="arrowUndoCircleOutline"></ArrowIcon>
             <ion-datetime-button datetime="datetime" class="text-xs"></ion-datetime-button>
             <ion-modal style="" :keep-contents-mounted="true">
-                <ion-datetime @ion-change="onDateChanged" id="datetime" :value="selectedDate.value"
+                <ion-datetime @ion-change="onDateChanged" id="datetime" :value="selectedDate"
                     class="text-xl "></ion-datetime>
             </ion-modal>
             <ArrowIcon id="rightArrow" @click="onArrowClicked" :icon="arrowRedoCircleOutline"></ArrowIcon>

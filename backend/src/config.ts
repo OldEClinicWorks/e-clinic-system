@@ -9,6 +9,8 @@ export const APP_MODE_PROD: number = 0;
 export const APP_MODE: number = APP_MODE_DEV;
 export const SECRET_URL = "secret_F0IjoxNjk0MjQ23owyr34kjgk";
 export const SECRET_URL_PASS = "7inys34i76rwqci34y2q3o;f";
+export const SSL_CERT = ""; //!! need to use HTTPs 
+export const SSL_KEY = ""; 
 // ATTENTION!
 /**
  * SQLCIPHER_DEP_PATH, I could not find a way to dynamically change this

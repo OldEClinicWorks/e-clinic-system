@@ -12,10 +12,10 @@ import QueueActions from './sub_components/QueueActions.vue';
 
 import { storeToRefs } from "pinia";
 import { useAppointmentStore } from '@/store/appointment';
+import { useQueueStore } from '@/store/queue/store';
 
-const store = useAppointmentStore();
-store.fetchAppointments();
-const { appointments } = storeToRefs(store);
+const queueStore = useQueueStore();
+const { appointments } = storeToRefs(queueStore);
 
 </script>
 <template>

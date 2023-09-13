@@ -1,179 +1,148 @@
 <script setup lang="ts">
 
-import { IonContent, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
-import XBaseSideBarNav from "@/views/layout/XBaseSideBarNav.vue";
-import XBaseHeader from "@/views/layout/XBaseHeader.vue";
-import XBaseLeftSide from "@/views/layout/XBaseLeftSide.vue";
-import XBaseRightSide from "@/views/layout/XBaseRightSide.vue";
-import XBaseCenter from "@/views/layout/XBaseCenter.vue";
-import XBaseFooter from "@/views/layout/XBaseFooter.vue";
+import { IonContent, IonIcon, IonMenuToggle, IonSplitPane, IonMenu, IonItem, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import { arrowForward } from 'ionicons/icons';
+// import XBaseSideBarNav from "@/views/layout/XBaseSideBarNav.vue";
+// import XBaseHeader from "@/views/layout/XBaseHeader.vue";
+// import XBaseLeftSide from "@/views/layout/XBaseLeftSide.vue";
+// import XBaseRightSide from "@/views/layout/XBaseRightSide.vue";
+// import XBaseCenter from "@/views/layout/XBaseCenter.vue";
+// import XBaseFooter from "@/views/layout/XBaseFooter.vue";
 
-// Left Side 
-import UserProfileCard from '@/views/components/cards/UserProfileCard.vue';
-import VitalSignsCard from '@/views/components/cards/VitalSignsCard.vue';
-// Queue
-import Queue from "@/views/components/queue/Queue.vue";
+// // Left Side 
+// import UserProfileCard from '@/views/components/cards/UserProfileCard.vue';
+// import VitalSignsCard from '@/views/components/cards/VitalSignsCard.vue';
+// // Queue
+// import Queue from "@/views/components/queue/Queue.vue";
 
-import Sample from "@/views/layout/Sample.vue"
+// import Sample from "@/views/layout/Sample.vue"
+
+import { usePatientStore } from '@/store/PatientStore';
+import { onMounted, ref } from 'vue';
+
+const toggleSidebar = (e: any) => {
+  // const sidebarToggleBtn = document.getElementById('sidebar-toggle-btn')
+  // sidebarToggleBtn?.classList.toggle('show-hide-btn-toggle');
+
+  const sideBar = document.getElementById('sidebar');
+  sideBar?.classList.toggle('show-sidebar');
+
+  const screenCover = document.getElementById('screen-cover');
+  screenCover?.classList.toggle('show-screen-cover');
+}
+const hideSidebar = () => {
+  // hide sidebar
+  const sideBar = document.getElementById('sidebar');
+  sideBar?.classList.remove('show-sidebar');
+
+  const screenCover = document.getElementById('screen-cover');
+  screenCover?.classList.remove('show-screen-cover');
+}
 </script>
 
 <template>
   <ion-page>
     <ion-content :fullscreen="true">
-      <!-- SCREEN -->
-      <div class="flex flex-col min-h-screen">
-        <div class="flex-grow flex xbase-col-shadow-left-col">
-          <!-- Vertical Left Toolbar -->
-          <XBaseSideBarNav>
-            <div> item1</div>
-            <div> item2</div>
-            <div> item3</div>
-            <div> item4</div>
-          </XBaseSideBarNav>
-          <!-- Main View -->
-          <div class="flex-grow flex flex-col">
-            <!-- Header -->
-            <XBaseHeader></XBaseHeader>
-            <!-- Content -->
-            <div class="flex-grow flex bg-gray">
-              <!-- Left Sidebar with Header and Scrollable Container -->
-              <XBaseLeftSide>
-               
-                <!-- <VitalSignsCard></VitalSignsCard>                
-                <VitalSignsCard></VitalSignsCard>                 -->
-              </XBaseLeftSide>
 
-              <!-- Main Content with Header and Scrollable Container -->
-              <XBaseCenter>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-                <div>line</div>
-              </XBaseCenter>
 
-              <!-- Right Sidebar with Header and Scrollable Container -->
-              <XBaseRightSide>                
-              </XBaseRightSide>
-            </div>
-
-            <!-- Footer -->
-            <XBaseFooter>
-              Footer Content Here
-            </XBaseFooter>
+      <!--start SIDE BAR -->
+      <div id="side-bar-container" class="absolute">
+        <div id="screen-cover" @click="hideSidebar" class="absolute min-h-full min-w-full screen-cover"></div>
+        <div id="sidebar" class="absolute sidebar z-40 flex min-h-screen overflow-y-visible">
+          <div id="sidebar-toggle-btn" @click="toggleSidebar"
+            class="z-50 flex flex-row sidebar-arrow show-hide-btn text-white">
+            <div class="rectangle-btn"></div>
+            <div class="circle-btn"></div>
           </div>
         </div>
       </div>
+      <!--end SIDE BAR -->
+
+      <!--start SCREEN -->
+      <div class="flex flex-row flex-grow-0 bg-blue-400 min-h-full">
+        <div class="flex flex-col flex-grow bg-slate-600">
+          <div>hi</div>
+          <div>hi</div>
+          <div>hi</div>
+          <div>hi</div>
+          <div>hi</div>
+        </div>
+        <div class="queue-list-container flex flex-col bg-red-500 w-1/4">
+          <div>hi</div>
+          <div>hi</div>
+          <div>hi</div>
+          <div>hi</div>
+        </div>
+      </div>
+      <!--end SCREEN -->
     </ion-content>
   </ion-page>
 </template>
 
-<style>
-.xbase-col-wrapper {
-  /* what?
-  * this is the wrapper containing
-  * default height for the main div container of a col
-  * any col component can override this by using a class
-  * inside that col component
-  *
-  * why?
-  * the screen is divided into: header, 3 columns, footer
-  * the size of the header and footer should remain the same,
-  * and the size for the columns should not change because if it
-  * it changed then the scroll bar will be shown on the right side
-  * of the screen
-  */
-  max-height: calc(100vh - 7rem);
+<style lang="scss" scoped>
+.rectangle-btn {
+  display: flex;
+  width: 250px;
+  height: 50px;
+  background: red;
 }
 
-.xbase-col-content-wrapper {
-  /* what?
-   * this is the wrapper containing
-   * default height for 'content' of a col
-   * any col component can override this by using a class
-   * inside that col component
-   *
-   * why?
-   * each column has: header, content, footer.
-   * each one of these should have a dynamic height
-   * relative to the vh value
-   */
-  max-height: calc(100vh - 10rem);
+.circle-btn {
+  width: 50px;
+  height: 50px;
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  background-color: red;
+
+  margin-left: auto
+}
+
+.show-hide-btn {
+  background: transparent;
+  display: flex;
+  position: absolute;
+  margin-top: 20px;
+  width: 275px;
+  height: 50px;
+  left: 0;
+}
+
+.sidebar-arrow-closed {
+  position: absolute;
+}
+
+.show-screen-cover {
+  opacity: 0.35 !important;
+}
+
+.screen-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 40;
+  opacity: 0.0;
+  background: black;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: -250px;
+  min-width: 250px;
+  height: 100%;
+  background-color: yellow;
+  color: #fff;
+  transition: left 0.3s ease;
+}
+
+.queue-list-container {
+  width: 25%;
+  min-width: 250px;
+}
+
+.show-sidebar {
+  left: 0;
 }
 </style>
 

@@ -1,0 +1,13 @@
+{
+   "tauri": {
+    "bundle": {
+      "externalBin": ["binaries/index"],
+    "allowlist": {
+      "shell": {
+        "sidecar": true,
+        "scope": [{ "name": "binaries/index", "sidecar": true }]
+      },
+    }
+  }
+}
+
