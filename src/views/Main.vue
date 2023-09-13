@@ -18,25 +18,24 @@ import { arrowForward } from 'ionicons/icons';
 // import Sample from "@/views/layout/Sample.vue"
 
 import { usePatientStore } from '@/store/PatientStore';
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
+
+
+const showSideBar = ref(false);
+const screenCoverDisappered = ref(false);
 
 const toggleSidebar = (e: any) => {
-  // const sidebarToggleBtn = document.getElementById('sidebar-toggle-btn')
-  // sidebarToggleBtn?.classList.toggle('show-hide-btn-toggle');
-
-  const sideBar = document.getElementById('sidebar');
-  sideBar?.classList.toggle('show-sidebar');
-
-  const screenCover = document.getElementById('screen-cover');
-  screenCover?.classList.toggle('show-screen-cover');
+  showSideBar.value = !showSideBar.value;
 }
 const hideSidebar = () => {
-  // hide sidebar
-  const sideBar = document.getElementById('sidebar');
-  sideBar?.classList.remove('show-sidebar');
-
+  showSideBar.value = false;
+}
+const onScreenCoverTransitioned = () => {
   const screenCover = document.getElementById('screen-cover');
-  screenCover?.classList.remove('show-screen-cover');
+  if (showSideBar.value)
+    screenCover?.classList.remove('screen-cover-zindex')
+  else
+    screenCover?.classList.add('screen-cover-zindex')
 }
 </script>
 
@@ -46,9 +45,10 @@ const hideSidebar = () => {
 
 
       <!--start SIDE BAR -->
+      <div id="screen-cover" @click="hideSidebar" class="absolute min-h-full min-w-full screen-cover"
+        :class="{ 'show-screen-cover': showSideBar }" @transitionend="onScreenCoverTransitioned"></div>
       <div id="side-bar-container" class="absolute">
-        <div id="screen-cover" @click="hideSidebar" class="absolute min-h-full min-w-full screen-cover"></div>
-        <div id="sidebar" class="absolute sidebar z-40 flex min-h-screen overflow-y-visible">
+        <div id="sidebar" class="absolute z-50 sidebar flex min-h-screen" :class="{ 'show-sidebar': showSideBar }">
           <div id="sidebar-toggle-btn" @click="toggleSidebar"
             class="z-50 flex flex-row sidebar-arrow show-hide-btn text-white">
             <div class="rectangle-btn"></div>
@@ -115,6 +115,10 @@ const hideSidebar = () => {
   opacity: 0.35 !important;
 }
 
+.screen-cover-zindex {
+  z-index: -1 !important;
+}
+
 .screen-cover {
   position: absolute;
   top: 0;
@@ -139,6 +143,7 @@ const hideSidebar = () => {
 .queue-list-container {
   width: 25%;
   min-width: 250px;
+
 }
 
 .show-sidebar {

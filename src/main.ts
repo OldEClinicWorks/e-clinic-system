@@ -25,6 +25,7 @@ import "@ionic/vue/css/display.css";
 import "./theme/variables.css";
 import "./theme/use-tailwind.css";
 import "./theme/xbase.css";
+import "animate.css";
 
 // alternatively, use `window.__TAURI__.shell.Command`
 // `binaries/my-sidecar` is the EXACT value specified on `tauri.conf.json > tauri > bundle > externalBin`
