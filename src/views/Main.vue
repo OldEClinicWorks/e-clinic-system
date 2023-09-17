@@ -19,21 +19,83 @@ import { arrowForward } from 'ionicons/icons';
 
 import { usePatientStore } from '@/store/PatientStore';
 import { computed, onMounted, ref } from 'vue';
+import SearchBar from './components/SearchBar.vue';
+import AppointmentInfo from './components/AppointmentInfo.vue';
+import SelectedPatientCard from './components/SelectedPatientCard.vue';
+import AppointmentForm from './components/AppointmentForm.vue'
+import ConfirmPatientModal from './components/ConfirmPatientModal.vue';
+import Test from './components/Test.vue';
+import Modal from './components/Modal.vue';
+import List from './backup/List.vue';
+
+const searchBarLocation = ref('center');
+const isShowSideBar = ref(false);
+const isShowAppontmentForm = ref(false);
+const isShowPatientForm = ref(false);
+const isShowSelectedPatientCard = ref(false);
 
 
-const showSideBar = ref(false);
-const searchBarToLeft = ref(false);
 
-const sendSearchBarToLeft = () => {
-  searchBarToLeft.value = !searchBarToLeft.value;
+const shouldScreenCoverIndex_beMinus1 = ref(true);
+
+const showAppointmentForm = () => {
+  isShowAppontmentForm.value = true;
+}
+const hideAppointmentForm = () => {
+  isShowAppontmentForm.value = false;
+}
+const hideSelectedPatientCard = () => {
+  isShowSelectedPatientCard.value = false;
+}
+const showSelectedPatientCard = () => {
+  isShowSelectedPatientCard.value = true;
 }
 
+const patientCardTransitioned_eventHandler = () => {
+  if (isShowSelectedPatientCard.value === false) { moveSearchBarToLeft(); }
+}
+const searchBarTransitioned_eventHandler = () => {
+  if (searchBarLocation.value === 'left') { showAppointmentForm(); }
+  if (searchBarLocation.value === 'left-out') { showSelectedPatientCard(); }
+}
+const appointFormTransitioned_eventHandler = () => {
+  if (isShowAppontmentForm.value === false) { moveSearchBarToCenter(); }
+}
+// im working on after form dissappers, move searchabr to center
+const moveSearchBarToCenter = () => {
+  searchBarLocation.value = 'center'
+}
+const moveSearchBarToLeft = () => {
+  searchBarLocation.value = 'left'
+}
+const moveSearchBarOutOfScreen = () => {
+  console.log('clicked');
+
+  searchBarLocation.value = 'left-out'
+}
+const toggleSearchbar = (e: any) => {
+  if (searchBarLocation.value === 'center') {
+    moveSearchBarToLeft();
+  }
+  else {
+    hideAppointmentForm();
+  }
+}
 const toggleSidebar = (e: any) => {
-  showSideBar.value = !showSideBar.value;
+  isShowSideBar.value = !isShowSideBar.value;
+  if (isShowSideBar.value === true) {
+    shouldScreenCoverIndex_beMinus1.value = false;
+  }
 }
-
+function showScreenCover() {
+}
+function hideScreenCover() {
+  if (isShowSideBar.value === false) {
+    shouldScreenCoverIndex_beMinus1.value = true;
+  }
+}
 const hideSidebar = () => {
-  showSideBar.value = false;
+  isShowSideBar.value = false;
 }
 </script>
 
@@ -42,12 +104,13 @@ const hideSidebar = () => {
     <ion-content :fullscreen="true">
       <!-- SCREEN COVER -->
       <div id="screen-cover" @click="hideSidebar" class="absolute min-h-full min-w-full screen-cover"
-        :class="{ 'show-screen-cover': showSideBar }"></div>
+        @transitionend="hideScreenCover"
+        :class="{ 'show-screen-cover': isShowSideBar, 'hide-screen-cover': shouldScreenCoverIndex_beMinus1 }"></div>
 
       <!-- SIDEBAR CONTAINER -->
       <div id="side-bar-container" class="absolute">
         <!-- SIDEBAR -->
-        <div id="sidebar" class="absolute z-50 sidebar flex min-h-screen" :class="{ 'show-sidebar': showSideBar }">
+        <div id="sidebar" class="absolute z-50 sidebar flex min-h-screen" :class="{ 'show-sidebar': isShowSideBar }">
 
           <!-- SIDEBAR BTN -->
           <div id="sidebar-toggle-btn" @click="toggleSidebar"
@@ -57,7 +120,7 @@ const hideSidebar = () => {
           </div>
           <!-- /SIDEBAR BTN -->
 
-          
+
         </div>
         <!-- /SIDEBAR -->
       </div>
@@ -66,19 +129,21 @@ const hideSidebar = () => {
       <!--start SCREEN -->
       <div class="flex flex-row flex-grow-0 bg-blue-400 min-h-full">
         <!-- CENTER -->
-        <div class="flex flex-col flex-grow bg-slate-600">
-
-          <!-- SEARCH BAR -->
-          <div class="flex">
-            <div @click="sendSearchBarToLeft" class="search-bar  bg-black h-10"
-              :class="{ 'search-bar-to-left': searchBarToLeft }"></div>
-          </div>
-
+        <div class="flex flex-col flex-grow bg-slate-600 z-20">
+          <search-bar @click="toggleSearchbar" :location="searchBarLocation"
+            @on-transitioned="searchBarTransitioned_eventHandler">
+          </search-bar>
+          <appointment-form @transitionend="appointFormTransitioned_eventHandler"
+            :shouldShow="isShowAppontmentForm"></appointment-form>
+          <selected-patient-card @on-transitioned="patientCardTransitioned_eventHandler"
+            @change-patient="hideSelectedPatientCard" :shouldShow="isShowSelectedPatientCard"></selected-patient-card>
         </div>
+        <div class=" bg-red-600" @click="moveSearchBarOutOfScreen">click</div>
         <!-- QUEUE -->
-        <div class="queue-list-container flex flex-col bg-red-500 w-1/4">
-
+        <div class="queue-list-container z-30 flex flex-col bg-red-500 w-1/4">
+          <List class="h-full"></List>
         </div>
+
       </div>
       <!--end SCREEN -->
     </ion-content>
@@ -113,27 +178,23 @@ const hideSidebar = () => {
   left: 0;
 }
 
-.search-bar-to-left {
-  left: 25px !important;
-  width: 300px !important;
-}
 
-.search-bar {
-  position: relative;
-  top: 5em;
-  width: 75%;
-  min-width: 50px;
-  left: 100px;
-  border-radius: 25px;
-  transition: left 0.3s ease, width 0.3s ease;
-}
 
 .sidebar-arrow-closed {
   position: absolute;
 }
 
 .show-screen-cover {
+  z-index: 40 !important;
   opacity: 0.35 !important;
+}
+
+.display-over-screen-cover {
+  z-index: 41 !important;
+}
+
+.hide-screen-cover {
+  z-index: -1 !important;
 }
 
 .screen-cover {

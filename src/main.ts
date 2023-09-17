@@ -21,11 +21,20 @@ import "@ionic/vue/css/text-transformation.css";
 import "@ionic/vue/css/flex-utils.css";
 import "@ionic/vue/css/display.css";
 
+// Vuetify
+import "vuetify/styles";
+import { createVuetify } from "vuetify";
+import * as components from "vuetify/components";
+import * as directives from "vuetify/directives";
+import "./theme/override-vuetify.css";
+
 /* Theme variables */
 import "./theme/variables.css";
 import "./theme/use-tailwind.css";
 import "./theme/xbase.css";
 import "animate.css";
+import "./theme/new-design-styles.css";
+import '@vuepic/vue-datepicker/dist/main.css'
 
 // alternatively, use `window.__TAURI__.shell.Command`
 // `binaries/my-sidecar` is the EXACT value specified on `tauri.conf.json > tauri > bundle > externalBin`
@@ -33,7 +42,11 @@ import "animate.css";
 // const output = await command.execute();
 
 const pinia = createPinia();
-const app = createApp(App).use(pinia).use(IonicVue).use(router);
+const vuetify = createVuetify({
+  components,
+  directives,
+});
+const app = createApp(App).use(pinia).use(vuetify).use(IonicVue).use(router);
 
 router.isReady().then(() => {
   app.mount("#app");

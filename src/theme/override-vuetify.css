@@ -1,0 +1,10 @@
+.v-field .v-field__overlay {
+    border-radius: 25px ;
+}
+.v-input__details{
+    /* display: none; */
+}
+.v-field__field{
+    border:none;
+}
+
